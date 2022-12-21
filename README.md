@@ -183,18 +183,17 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { QuoteModule } from './quote/quote.module';
 import { NotifierModule } from './notifier/notifier.module';
-import { NotifierGateway } from './notifier/notifier.gateway';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
   imports: [QuoteModule, NotifierModule, EventEmitterModule.forRoot()],
   controllers: [AppController],
-  providers: [AppService, NotifierGateway],
+  providers: [AppService],
 })
 export class AppModule {}
 ```
 
-you you need update two files `notifier.gateway.ts`  
+also you need update two files `notifier.gateway.ts`  
 ```typescript
 // src/notifier/notifier.gateway.ts
 import { OnModuleInit } from '@nestjs/common';
